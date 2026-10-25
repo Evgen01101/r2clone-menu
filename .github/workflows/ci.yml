@@ -18,16 +18,9 @@ jobs:
         shell: powershell
         run: .\tools\Test-Hygiene.ps1
 
-      - name: Синтаксис скрипта
+      - name: Синтаксис скриптов
         shell: powershell
-        run: |
-          $errors = $null
-          [void][System.Management.Automation.Language.Parser]::ParseFile("$PWD\R2clone_menu.ps1", [ref]$null, [ref]$errors)
-          if ($errors) {
-            $errors | ForEach-Object { Write-Host ('строка ' + $_.Extent.StartLineNumber + ': ' + $_.Message) }
-            exit 1
-          }
-          Write-Host "Синтаксис в порядке"
+        run: .\tools\Test-Syntax.ps1
 
       - name: Установка модулей
         shell: powershell
