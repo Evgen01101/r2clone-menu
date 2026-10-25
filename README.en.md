@@ -64,13 +64,13 @@ rclone lsd ydisk:
 Double-click `R2clone_menu.bat`, or:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "E:\AI\R2clone_menu\R2clone_menu.ps1"
+powershell -ExecutionPolicy Bypass -File "<project folder>\R2clone_menu.ps1"
 ```
 
 | Parameter | Default | Purpose |
 |---|---|---|
 | `-Remote` | `ydisk` | rclone remote name |
-| `-LocalRoot` | empty | forces the local folder for this run; otherwise config, otherwise `disks\<remote>` |
+| `-LocalRoot` | empty | forces the local folder for this run; otherwise config, otherwise `<disks folder>\<remote>` |
 | `-DryRun` | off | adds `--dry-run`: shows what would be copied, writes nothing |
 | `-NoGui` | off | skip folder/file pickers, type paths instead |
 | `-Version` | — | print versions and exit |
@@ -105,7 +105,7 @@ Numbering is recalculated after each navigation: folders alphabetically first, t
 ## Local folders and settings
 
 - Per-remote local folder is stored in `R2clone_menu.config.json` next to the script (paths only, no secrets).
-- If no record exists, `<script folder>\disks\<remote>` is used, e.g. `E:\AI\R2clone_menu\disks\gdrive`.
+- If no record exists, `<disks folder>\<remote>` is used; by default that is the `disks` subfolder of the project folder.
 - The folder is created on first use after confirmation.
 
 ## How it behaves

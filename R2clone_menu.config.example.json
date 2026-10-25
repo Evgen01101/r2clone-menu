@@ -1,6 +1,6 @@
 {
     "roots": {
-        "ydisk": "D:\\Downloads\\YandexDisk",
-        "gdrive": "E:\\AI\\R2clone_menu\\disks\\gdrive"
+        "ydisk": "<папка дисков>\\ydisk",
+        "gdrive": "<папка дисков>\\gdrive"
     }
 }

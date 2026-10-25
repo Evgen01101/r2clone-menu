@@ -32,7 +32,7 @@ WebDAV закрыт на бесплатном тарифе. Не использ�
 Троттлинг Яндекса. Снизить параллельность:
 
 ```powershell
-rclone copy "ydisk:Папка" "D:\Куда" --transfers 2 --checkers 4 --tpslimit 5
+rclone copy "ydisk:Папка" "<папка дисков>" --transfers 2 --checkers 4 --tpslimit 5
 ```
 
 ## Запуск и консоль
@@ -54,14 +54,14 @@ rclone copy "ydisk:Папка" "D:\Куда" --transfers 2 --checkers 4 --tpslim
 Запускайте через `R2clone_menu.bat` (в нём `-ExecutionPolicy Bypass`) либо разово:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "E:\AI\R2clone_menu\R2clone_menu.ps1"
+powershell -ExecutionPolicy Bypass -File "<папка проекта>\R2clone_menu.ps1"
 ```
 
 Менять политику на уровне системы не требуется.
 
 ### Кириллица в аргументах батника
 
-`cmd` передаёт аргументы в своей кодировке, и путь вида `D:\Загрузки\…`, переданный через `.bat`, может исказиться. Не передавайте `-LocalRoot` из батника — меняйте значение в `R2clone_menu.config.json` или в параметрах `.ps1`.
+`cmd` передаёт аргументы в своей кодировке, и путь вида `<папка дисков>\…`, переданный через `.bat`, может исказиться. Не передавайте `-LocalRoot` из батника — меняйте значение в `R2clone_menu.config.json` или в параметрах `.ps1`.
 
 ## Работа с файлами
 
@@ -97,7 +97,7 @@ R2clone_menu.bat -DryRun -NoGui
 
 ### Локальная папка не та
 
-Пункт 12 показывает источник: параметр `-LocalRoot`, файл настроек или значение по умолчанию `disks\<remote>`. Сброс — пункт 12 → «3».
+Пункт 12 показывает источник: параметр `-LocalRoot`, файл настроек или значение по умолчанию `<папка дисков>\<remote>`. Сброс — пункт 12 → «3».
 
 ### Скрипт не видит настройки
 
