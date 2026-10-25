@@ -1,0 +1,81 @@
+name: Ошибка
+description: Что-то работает не так, как описано в README
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо за отчёт. **Не прикладывайте** токены, `client_secret` и содержимое `rclone.conf` — для диагностики достаточно кода ошибки.
+  - type: input
+    id: version
+    attributes:
+      label: Версия R2clone_menu
+      placeholder: "1.2.0"
+    validations:
+      required: true
+  - type: input
+    id: rclone
+    attributes:
+      label: Версия rclone
+      description: Первая строка вывода `rclone version`
+      placeholder: "rclone v1.75.1"
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Windows и PowerShell
+      placeholder: "Windows 10 Pro 22H2, PowerShell 5.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Что сломалось
+      options:
+        - Запуск и меню
+        - Скачивание
+        - Загрузка на Диск
+        - Локальная папка и настройки
+        - Доступ и авторизация
+        - Документация
+        - Другое
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      placeholder: |
+        1. Запустил R2clone_menu.bat
+        2. Пункт 2 → вошёл в папку
+        3. Пункт 8
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемое поведение
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Фактическое поведение
+      description: Текст ошибки из консоли и/или последние строки журнала
+    validations:
+      required: true
+  - type: input
+    id: codes
+    attributes:
+      label: Коды ошибок
+      description: Например 401, 402, 403, 410, 429 — без токенов
+      placeholder: "410"
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Подтверждение
+      options:
+        - label: В отчёте нет токенов, client_secret, личных путей и содержимого rclone.conf
+          required: true

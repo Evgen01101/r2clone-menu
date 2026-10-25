@@ -1,0 +1,18 @@
+# пользовательские настройки с локальными путями
+R2clone_menu.config.json
+
+# локальные копии облака
+disks/
+
+# журналы rclone
+*.log
+
+# служебные файлы ОС и редакторов
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# собранные релизы
+dist/

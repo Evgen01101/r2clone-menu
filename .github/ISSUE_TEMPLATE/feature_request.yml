@@ -1,0 +1,45 @@
+name: Идея
+description: Предложение по функциональности или удобству
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: В чём неудобство
+      description: Опишите задачу, а не только готовое решение
+      placeholder: Приходится вручную считать, сколько осталось места перед выгрузкой большого архива
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Что предлагаете
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Альтернативы
+      description: Как вы решаете это сейчас — вручную, другим инструментом, обходным путём
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Область
+      options:
+        - Интерфейс и меню
+        - Скачивание
+        - Загрузка
+        - Настройки и пути
+        - Документация
+        - Другое
+        - Другие облака (Google Drive, OneDrive, S3)
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Подтверждение
+      options:
+        - label: В предложении нет токенов и персональных данных
+          required: true
