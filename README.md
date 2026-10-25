@@ -4,6 +4,8 @@
 
 # R2clone menu — консольное меню для Яндекс.Диска
 
+[![ci](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml/badge.svg)](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml)
+
 Небольшая обёртка над [rclone](https://rclone.org), которая делает выгрузку файлов с Яндекс.Диска на локальный ПК предсказуемой: навигация по папкам, размер до скачивания, копирование с докачкой, сверка результата и разбор ошибок — без запоминания флагов командной строки.
 
 Проверено на rclone **v1.75.1**, Windows 10 Pro 22H2, Windows PowerShell 5.1.

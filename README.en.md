@@ -4,6 +4,8 @@
 
 # R2clone menu — console menu for Yandex.Disk
 
+[![ci](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml/badge.svg)](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml)
+
 A small wrapper around [rclone](https://rclone.org) that makes pulling files from Yandex.Disk to a Windows PC predictable: browse folders, check sizes before downloading, copy with resume, verify results, and read errors — without memorising command-line flags.
 
 It also uploads: a folder or a single file, from a local path into the current cloud folder.
