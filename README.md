@@ -2,7 +2,7 @@
   <img src="img/icon.png" alt="Логотип R2clone menu" width="128">
 </p>
 
-# R2clone menu — консольное меню для Яндекс.Диска
+# R2clone menu — консольное меню для облака - например, Яндекс.Диска.
 
 [![ci](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml/badge.svg)](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml)
 
