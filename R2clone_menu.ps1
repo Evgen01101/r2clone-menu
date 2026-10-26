@@ -27,7 +27,8 @@ $script:Roots = @{}
 $script:CurrentPath = ''
 $script:Items = @()
 $script:ItemsPath = $null
-$script:AppVersion = '1.2.0'
+$script:RemoteType = ''
+$script:AppVersion = '1.2.1'
 
 if ($Version) {
     Write-Host ('R2clone menu ' + $script:AppVersion)
@@ -138,11 +139,23 @@ function Get-LocalPath {
     return (Get-LocalRoot)
 }
 
+
+function Get-RemoteType {
+    if ($script:RemoteType) { return $script:RemoteType }
+    $raw = & rclone config show $Remote 2>$null
+    $type = ''
+    foreach ($line in @($raw)) {
+        if ($line -match '^\s*type\s*=\s*(\S+)') { $type = $Matches[1]; break }
+    }
+    $script:RemoteType = $type
+    return $type
+}
 function Show-Header {
     $disp = if ($script:CurrentPath) { '/' + $script:CurrentPath } else { '/' }
     Write-Host ''
     Write-Host ('=== R2clone menu ' + $script:AppVersion + ' · ' + $Remote + ' ===') -ForegroundColor Cyan
     if ($script:DryRunMode) { Write-Host 'Режим: --dry-run — на Диск ничего не записывается' -ForegroundColor Yellow }
+    if ((Get-RemoteType) -eq 'yandex') { Write-Host 'Доступ к Диску: официальный API Яндекса (yandex.ru/dev/disk-api)' -ForegroundColor DarkGray }
     Write-Host ('Диск    : ' + $disp)
     Write-Host ('Локально: ' + (Get-LocalRoot) + '  [' + (Get-RootSource) + ']')
     Write-Host ('Журнал  : ' + (Get-LogFile))
@@ -504,6 +517,7 @@ function Set-Credentials {
     & rclone config delete $Remote 2>$null
     & rclone config create $Remote yandex client_id $clientId client_secret $clientSecret config_is_local=true
     if ($LASTEXITCODE -ne 0) { Write-Host 'Создать remote не удалось.' -ForegroundColor Red; return }
+    $script:RemoteType = ''
     Test-Access
     Reset-Items
 }

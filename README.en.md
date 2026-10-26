@@ -109,6 +109,8 @@ powershell -ExecutionPolicy Bypass -File "<project folder>\R2clone_menu.ps1"
 
 Numbering is recalculated after each navigation: folders alphabetically first, then files.
 
+For remotes of type `yandex` the header shows «Доступ к Диску: официальный API Яндекса» — the technology attribution required by Yandex's API terms (clause 2.4).
+
 ## Local folders and settings
 
 - Per-remote local folder is stored in `R2clone_menu.config.json` next to the script (paths only, no secrets).
