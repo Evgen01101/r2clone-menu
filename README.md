@@ -1,14 +1,21 @@
 <p align="center">
-  <img src="img/icon.png" alt="Логотип R2clone menu" width="128">
+  <img src="img/logo_icon2.png" alt="Логотип R2clone menu" width="128">
 </p>
 
-# R2clone menu — консольное меню для облака - например, Яндекс.Диска.
+# R2clone menu — консольное меню для облачных хранилищ (сейчас — Яндекс.Диск)
 
 [![ci](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml/badge.svg)](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml)
 
 Небольшая обёртка над [rclone](https://rclone.org), которая делает выгрузку файлов с Яндекс.Диска на локальный ПК предсказуемой: навигация по папкам, размер до скачивания, копирование с докачкой, сверка результата и разбор ошибок — без запоминания флагов командной строки.
 
+<p>
+  <img src="img/yandex-disk-logo.png" alt="Яндекс.Диск" height="28">
+  Работает через официальный API <a href="https://yandex.ru/dev/disk-api/">Яндекс.Диска</a>. Логотип используется по правилам <a href="https://360.yandex.ru/brand/">бренд-системы Яндекс 360</a>.
+</p>
+
 Проверено на rclone **v1.75.1**, Windows 10 Pro 22H2, Windows PowerShell 5.1.
+
+Сейчас полностью поддержан Яндекс.Диск. Другие облака работают через тот же rclone, но настройка доступа (пункт 18) пока только для Яндекса — см. раздел [«Другие облака»](#другие-облака-планы-на-будущие-версии).
 
 **English summary:** [README.en.md](README.en.md) · **История версий:** [CHANGELOG.md](CHANGELOG.md) · **Как помочь:** [CONTRIBUTING.md](CONTRIBUTING.md)
 

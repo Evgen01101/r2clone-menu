@@ -1,16 +1,23 @@
 <p align="center">
-  <img src="img/icon.png" alt="R2clone menu logo" width="128">
+  <img src="img/logo_icon2.png" alt="R2clone menu logo" width="128">
 </p>
 
-# R2clone menu — console menu for Yandex.Disk
+# R2clone menu — console menu for cloud storage (currently Yandex.Disk)
 
 [![ci](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml/badge.svg)](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml)
 
 A small wrapper around [rclone](https://rclone.org) that makes pulling files from Yandex.Disk to a Windows PC predictable: browse folders, check sizes before downloading, copy with resume, verify results, and read errors — without memorising command-line flags.
 
+<p>
+  <img src="img/yandex-disk-logo.png" alt="Yandex.Disk" height="28">
+  Works through the official <a href="https://yandex.ru/dev/disk-api/">Yandex.Disk API</a>. The logo is used according to the <a href="https://360.yandex.ru/brand/">Yandex 360 brand guidelines</a>.
+</p>
+
 It also uploads: a folder or a single file, from a local path into the current cloud folder.
 
 Tested on rclone **v1.75.1**, Windows 10 Pro 22H2, Windows PowerShell 5.1.
+
+Yandex.Disk is fully supported today. Other clouds work through the same rclone, but the access setup (menu item 18) is still Yandex-only — see [Other clouds](#other-clouds).
 
 > Полная документация на русском — [README.md](README.md). This page is a condensed English summary; the Russian README is the reference.
 
