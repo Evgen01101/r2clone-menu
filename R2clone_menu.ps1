@@ -541,6 +541,7 @@ function Show-Help {
     Write-Host '  rclone selfupdate                        — обновить rclone'
     Write-Host ''
     Write-Host 'Полезные флаги: --transfers N --checkers N --tpslimit N --dry-run --exclude "*.tmp" --max-age 7d'
+    Write-Host 'Лимит API: не более 40 запросов в секунду (п. 2.2) — --transfers/--checkers до 8, при 429/509 добавьте --tpslimit 5.' -ForegroundColor DarkGray
 }
 
 function Show-Menu {

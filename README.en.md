@@ -33,6 +33,14 @@ In 2026 the usual ways to bulk-download from Yandex.Disk on a free plan were clo
 | rclone's built-in OAuth app | Yandex answers `410 GoneError` |
 | **Disk REST API with your own OAuth app** | **works on the free plan** — used by this project |
 
+## Purpose and scope
+
+The tool works only with files of the account you authorised and is intended for backing up and migrating your own data.
+
+- **Your own account only.** Third-party accounts are not supported: no token import, no authorisation bypass, no access to other people's data (clause 2.8 of the Yandex.Disk API terms).
+- **No mass file sharing.** No public links, no file distribution, no access grants (clause 2.17 of the Yandex.Disk terms).
+- **No data relay.** Files travel directly between your PC and Yandex; there is no telemetry and no server of our own.
+
 ## Requirements
 
 - Windows 10/11, Windows PowerShell 5.1 or newer.
@@ -123,6 +131,7 @@ For remotes of type `yandex` the header shows «Доступ к Диску: оф
 - **Resume.** Re-running the same item transfers only missing or changed files.
 - **Verification.** `rclone check --one-way` reports what is missing locally; expected result is `0 differences found`.
 - **Progress and log.** `-P` in the console, full log next to the local folder.
+- **API limit.** Stay below 40 requests per second (clause 2.2): keep `--transfers` and `--checkers` at 8 or less, add `--tpslimit 5` on `429`/`509`. Higher values may get the account throttled.
 - **Fail-fast.** Press `Ctrl+C` to stop; already copied files stay, the partial one is rewritten next run.
 
 ## Troubleshooting
