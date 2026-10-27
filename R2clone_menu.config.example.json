@@ -1,6 +1,25 @@
 {
-    "roots": {
-        "ydisk": "<папка дисков>\\ydisk",
-        "gdrive": "<папка дисков>\\gdrive"
+    "schemaVersion": 2,
+    "paths": {
+        "dataRoot": "portable"
+    },
+    "default": "ydisk",
+    "remotes": {
+        "ydisk": {
+            "type": "yandex",
+            "label": "Яндекс.Диск",
+            "localRoot": "yandex\\ydisk",
+            "lastPath": "",
+            "backendOptions": {},
+            "extraFlags": []
+        },
+        "gdrive": {
+            "type": "drive",
+            "label": "Google Drive",
+            "localRoot": "drive\\gdrive",
+            "lastPath": "",
+            "backendOptions": {},
+            "extraFlags": []
+        }
     }
 }

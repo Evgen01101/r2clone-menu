@@ -1,0 +1,53 @@
+{
+  "comment": "Пример переопределения каталога провайдеров. Скопируйте файл рядом со скриптом под именем R2clone_menu.providers.json. Запись с тем же type полностью заменяет встроенную, остальные типы остаются из встроенного каталога. Если JSON битый, оверрайд игнорируется и атрибуция не теряется.",
+  "providers": {
+    "drive": {
+      "type": "drive",
+      "label": "Google Drive",
+      "requiresApp": false,
+      "optionalApp": true,
+      "interactiveOnly": false,
+      "authHint": "https://rclone.org/drive/",
+      "docsUrl": "https://rclone.org/drive/",
+      "supportsAbout": true,
+      "hasHashes": true,
+      "attribution": null,
+      "notes": [
+        "Google Docs/Sheets/Slides экспортируются в docx/xlsx/pptx",
+        "Общие диски: ключ team_drive, флаги --drive-*",
+        "Свой client_id нужен при интенсивном использовании"
+      ],
+      "allowedConfigKeys": [ "team_drive", "root_folder_id", "chunk_size", "export_formats" ],
+      "allowedFlags": [ "--drive-*", "--tpslimit", "--exclude", "--include", "--max-age" ],
+      "fields": [
+        { "name": "client_id", "label": "ClientID (необязательно)", "secret": false, "required": false, "hint": "Свой клиент — для интенсивного использования" },
+        { "name": "client_secret", "label": "Client secret (необязательно)", "secret": true, "required": false, "hint": "" }
+      ]
+    },
+    "s3": {
+      "type": "s3",
+      "label": "S3-совместимое хранилище",
+      "requiresApp": true,
+      "optionalApp": false,
+      "interactiveOnly": false,
+      "authHint": "https://rclone.org/s3/",
+      "docsUrl": "https://rclone.org/s3/",
+      "supportsAbout": false,
+      "hasHashes": false,
+      "attribution": null,
+      "notes": [
+        "Квоту about обычно не отдаёт — пункт 13 покажет только локальный диск",
+        "Хэшей может не быть — пункт 9 сравнит только размер"
+      ],
+      "allowedConfigKeys": [ "provider", "endpoint", "region" ],
+      "allowedFlags": [ "--s3-*", "--tpslimit" ],
+      "fields": [
+        { "name": "provider", "label": "Провайдер (Provider)", "secret": false, "required": true, "hint": "AWS, Minio, Selectel и т. п." },
+        { "name": "access_key_id", "label": "Access key ID", "secret": false, "required": true, "hint": "" },
+        { "name": "secret_access_key", "label": "Secret access key", "secret": true, "required": true, "hint": "" },
+        { "name": "endpoint", "label": "Endpoint (необязательно)", "secret": false, "required": false, "hint": "Например, https://s3.example.com" },
+        { "name": "region", "label": "Регион (необязательно)", "secret": false, "required": false, "hint": "" }
+      ]
+    }
+  }
+}

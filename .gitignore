@@ -16,3 +16,8 @@ desktop.ini
 
 # собранные релизы
 dist/
+
+# локальные документы и ресурсы, не для публикации
+docs/compliance-checklist.md
+docs/providers-spec.md
+img/logo_icon2_.ico

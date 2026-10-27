@@ -1,8 +1,8 @@
-<p align="center">
+﻿<p align="center">
   <img src="img/logo_icon2.png" alt="R2clone menu logo" width="128">
 </p>
 
-# R2clone menu — console menu for cloud storage (currently Yandex.Disk)
+# R2clone menu — console menu for cloud storage on rclone
 
 [![ci](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml/badge.svg)](https://github.com/Evgen01101/r2clone-menu/actions/workflows/ci.yml)
 
@@ -17,7 +17,7 @@ It also uploads: a folder or a single file, from a local path into the current c
 
 Tested on rclone **v1.75.1**, Windows 10 Pro 22H2, Windows PowerShell 5.1.
 
-Yandex.Disk is fully supported today. Other clouds work through the same rclone, but the access setup (menu item 18) is still Yandex-only — see [Other clouds](#other-clouds).
+Since version 1.3 the storage is chosen from a provider catalog: Yandex.Disk, Google Drive, OneDrive, S3-compatible storage and Dropbox. Items 1–17 stay generic rclone commands; access setup (item 18), extra options (item 21) and hints follow the selected provider profile — see [Other clouds](#other-clouds).
 
 > Полная документация на русском — [README.md](README.md). This page is a condensed English summary; the Russian README is the reference.
 
@@ -164,7 +164,7 @@ Full breakdown (Russian): [docs/troubleshooting.md](docs/troubleshooting.md).
 
 ## Other clouds
 
-Most menu items only use generic rclone commands, so `-Remote gdrive` (or `onedrive`, `s3`) already works for browsing and copying. Item 18 still hardcodes the `yandex` backend type; a `-Type` parameter is planned for 1.3. See the Russian README for Google Drive caveats (custom client, 7-day refresh tokens in Testing mode, Google Docs export).
+Menu items 1–17 use generic rclone commands (`lsd`, `lsjson`, `size`, `about`, `copy`, `copyto`, `check`), so any configured remote works: pick it in item 20 (Storages) or pass `-Remote gdrive` / `onedrive` / `s3`. Item 18 creates a remote by the selected provider profile (Google Drive works without your own client; OneDrive asks for a normal Microsoft sign-in; S3 takes access keys); interactive-only providers open `rclone config` directly. Item 21 adds extra flags and config keys per storage, checked against the provider allowlist; dangerous flags (`--config`, `--rc`, `--daemon`, `--backup-dir`, `--log-file`) are refused. See the Russian README for Google Drive caveats (custom client, 7-day refresh tokens in Testing mode, Google Docs export).
 
 ## License
 
