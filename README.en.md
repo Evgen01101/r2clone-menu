@@ -159,7 +159,15 @@ Full breakdown (Russian): [docs/troubleshooting.md](docs/troubleshooting.md).
 
 - OAuth token and client secret live in `%APPDATA%\rclone\rclone.conf`, obfuscated but not encrypted.
 - The token grants full access to the Disk: never paste it into chats, issues or logs.
-- Revoke at `https://id.yandex.ru/security`; changing the Yandex password invalidates all tokens.
+- Removing a remote (`rclone config delete <remote>` or item 20 → `d`) deletes the token locally only — the provider still holds a valid grant. Real revocation happens in the account:
+
+  | Provider | Where to revoke |
+  |---|---|
+  | Yandex.Disk | `id.yandex.ru` → "Security" → "Access to your data" → "Manage access" → remove the app. Changing the Yandex password invalidates all tokens at once. |
+  | Google Drive | `myaccount.google.com` → "Security" → "Third-party apps with account access" → remove the app |
+  | OneDrive | `account.microsoft.com` → "Permissions and apps" → remove rclone |
+  | Dropbox | `dropbox.com/account/connected_apps` → remove the app |
+  | S3-compatible | deactivate or delete the access keys in the provider console |
 - Each user creates their own OAuth application — no shared credentials are shipped.
 
 ## Other clouds
